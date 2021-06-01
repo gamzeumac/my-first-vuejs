@@ -4,17 +4,16 @@ const app = Vue.createApp({
 
    data(){
        return {
+           showBooks: true,
            title: 'The Final Empire',
            author: 'Gamze Umac',
            age: 31
        }
    },
    methods: {
-       changeTitle(title){
-           /* this.title = 'Word of Randiance' */
-
-           this.title = title
-       }
+    toggleShowBooks() {
+        this.showBooks = !this.showBooks
+    }
    }
 })
 
