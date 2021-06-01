@@ -7,14 +7,26 @@ const app = Vue.createApp({
            showBooks: true,
            title: 'The Final Empire',
            author: 'Gamze Umac',
-           age: 31
+           age: 31,
+           x: 0,
+           y: 0
        }
    },
    methods: {
     toggleShowBooks() {
-        this.showBooks = !this.showBooks
+      this.showBooks =  !this.showBooks
+    },
+    handleEvent(e, data) {
+      console.log(e.type, e)
+      if (data) {
+        console.log(data)
+      }
+    },
+    handleMousemove(e) {
+      this.x = e.offsetX
+      this.y = e.offsetY
     }
-   }
+  }
 })
 
 app.mount('#app')
