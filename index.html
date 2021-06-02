@@ -21,33 +21,28 @@
 
 <body>
     <h1>Hello Vue</h1>
-    <div class="div" id="app">
-        <div v-if="showBooks">
-            <p>{{ title }} - {{ author}} - {{age}} </p>
-        </div>
+    
+  <div id="app">
+   <!--  <a v-bind:href="url">best Website ever</a> -->
+    <div v-if="showBooks">
+      <ul>
+        <li v-for="book in books">
+          <img :src="book.img" :alt="book.title">
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
 
-        <button @click="toggleShowBooks">
-            <span v-if="showBooks">Hide Books</span>
-            <span v-else>Show Books</span>
-        </button>
-        <div v-show="showBooks">currently showing books</div>
-
-
-        <!--   <button v-on:click="age++">Increase age</button>
-        <button v-on:click="age--">Decrease age</button>
-        <div @click="changeTitle('Oatbringer')">Change book title</div> -->
-
-        <br>
-        <!-- mouse events -->
-        <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
-        <div class="box" @mouseleave="handleEvent">mouseleave</div>
-        <div class="box" @dblclick="handleEvent">double click me</div>
-        <div class="box" @mousemove="handleMousemove">position {{ x }} {{ y }}</div>
-        
-      </div>
-
-
+        </li>
+      </ul>
     </div>
+    <div v-else>
+      <p>Click the button below to show books</p>
+    </div>
+    
+    <button @click="toggleShowBooks">
+      <span v-if="showBooks">Hide books</span>
+      <span v-else>Show books</span>
+    </button>
+  </div>
 
     <script src="./app.js"></script>
 </body>
